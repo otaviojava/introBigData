@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition template="/WEB-INF/templates/main.xhtml"
+xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:cc="http://java.sun.com/jsf/composite"
+	
+        >
+    
+    
+    <ui:define name="content">
+        <h:form id="form">
+            <p:messages id="menssagem" />
+        <p:panel header="Adicionar Currículo">
+            <h:panelGrid columns="2">
+                
+                <h:outputText value="Nick:"  />
+                <p:inputText value="#{pessoaBean.pessoa.nickName}" required="true"  requiredMessage="Campo Nick Obrigatório"/>
+                <h:outputText value="Nome:"  />
+                <p:inputText value="#{pessoaBean.pessoa.nome}" required="true"  requiredMessage="Campo Nome Obrigatório"/>
+                <h:outputText value="Profissão:"  />
+                <p:inputText value="#{pessoaBean.pessoa.profissao}" required="true"  requiredMessage="Campo Profissao Obrigatório"/>
+                <h:outputText value="Cidade"  />
+                <p:inputText value="#{pessoaBean.pessoa.endereco.cidade}" />
+                <h:outputText value="Estado:"  />
+                <p:inputText value="#{pessoaBean.pessoa.endereco.estado}" required="true"  requiredMessage="Campo Estado Obrigatório"/>
+                <h:outputText value="Currículo:"  />
+                <p:inputTextarea rows="6" cols="33" value="#{pessoaBean.pessoa.curriculo}" required="true"  requiredMessage="Campo currículo Obrigatório"/>
+            </h:panelGrid>   
+            <p:commandButton value="Salvar" action="#{pessoaBean.adicionar()}" update="menssagem,form"/>
+        </p:panel>
+        </h:form>    
+    </ui:define>
+</ui:composition>
